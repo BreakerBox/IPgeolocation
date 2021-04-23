@@ -1,4 +1,4 @@
-# iPgeolocation
+# IPgeolocation
 ![Paint Version](https://img.shields.io/gem/v/paint)
 [`IPgeolocation.com`](https://github.com/BreakerBox/IPgeolocation.git)
 
