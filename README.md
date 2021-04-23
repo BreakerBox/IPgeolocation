@@ -1,5 +1,5 @@
 # IPgeolocation
-![Ruby 3.0.0](https://img.shields.io/badge/Ruby-3.0.0-blue)
+[![Ruby 3.0.0](https://img.shields.io/badge/Ruby-3.0.0-blue)
 [`IPgeolocation.com`](https://github.com/BreakerBox/IPgeolocation.git)
 
 This is the official Ruby client library for the [`IPinfo.io`](https://ipinfo.io) IP address API, allowing you to lookup your own IP address, or get any of the following details for an IP:
