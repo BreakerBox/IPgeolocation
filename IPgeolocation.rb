@@ -1,5 +1,5 @@
 #!/bin/env ruby
-#encoding UTF-8
+require 'open3'
 require 'ruby_figlet'
 require 'paint'
 using RubyFiglet
@@ -21,13 +21,19 @@ class MainInformation
     puts " \e[35;4mParametros:\e[0m
 
  \e[1;32m  -h\e[1;30m,\e[1;32m --help\e[0m            command to view help parameters
+ \e[1;32m  -m\e[1;30m,\e[1;32m --myip\e[0m            Scan my ip online
  \e[1;32m  -t\e[1;30m,\e[1;32m --target\e[0m          IP address to scan online
  \e[1;32m  -db\e[1;30m,\e[1;32m --database\e[0m       use geoip database to scan ip address
     "
   end
   def trab()
     @param = ARGV[0]
-    if (@param == '-t') || (@param == '--target')
+    if (@param == '-m') || (@param == '--myip')
+       ips, err, ups = Open3.capture3("curl ifconfig.co")
+       ips.chomp!
+       load '.IPinfo/__main__.rb'
+       ID.ipinfo(ips)
+    elsif (@param == '-t') || (@param == '--target')
         @ips = ARGV[1]
         load '.IPinfo/__main__.rb'
         ID.ipinfo(@ips)
