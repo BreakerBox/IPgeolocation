@@ -17,24 +17,19 @@ This script is an ip geolocation tool programmed in ruby ​​by [`BreakerBox`]
 ### Installation in termux
 
 > $ apt update
-```
-$ apt upgrade
-```
-```
-$ apt install git
-```
-```
-$ apt install ruby
-```
-```
-$ git clone https://github.com/BreakerBox/IPgeolocation.git/
-```
-```
-$ cd IPgeolocation
-```
-```
-$ ruby IPgeolocation.rb --help
-```
+
+> $ apt upgrade
+
+> $ apt install git
+
+> $ apt install ruby
+
+> $ git clone https://github.com/BreakerBox/IPgeolocation.git/
+
+> $ cd IPgeolocation
+
+> $ ruby IPgeolocation.rb --help
+
 ### Installation in others
 
 $ git clone https://github.com/BreakerBox/IPgeolocation.git/
