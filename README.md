@@ -66,3 +66,7 @@ $ ruby IPgeolocation.rb --help
      -h, --help            command to view help parameters
      -t, --target          IP address to scan online
      -db, --database       use geoip database to scan ip address
+---
+## License
+
+Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md](LICENSE.md) para detalles/
