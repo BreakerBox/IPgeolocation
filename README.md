@@ -16,7 +16,7 @@ This script is an ip geolocation tool programmed in ruby ​​by [`BreakerBox`]
 
 ### Installation in termux
 
-> $ apt update
+> $ **apt update**
 
 > $ apt upgrade
 
