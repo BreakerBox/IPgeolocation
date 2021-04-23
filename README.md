@@ -47,24 +47,7 @@ $ ruby requirements.rb
 $ ruby IPgeolocation.rb --help
 
 # Usage
-
-    root@breaker:~/home/Pack-Tool# ruby IPgeolocation.rb --help
-
-    ██▓ ██▓███       ██▓ ███▄    █   █████▒ ▒█████
-    ▓██▒▓██░  ██▒    ▓██▒ ██ ▀█   █ ▓██   ▒ ▒██▒  ██▒
-    ▒██▒▓██░ ██▓▒    ▒██▒▓██  ▀█ ██▒▒████ ░ ▒██░  ██▒
-    ░██░▒██▄█▓▒ ▒    ░██░▓██▒  ▐▌██▒░▓█▒  ░ ▒██   ██░
-    ░██░▒██▒ ░  ░    ░██░▒██░   ▓██░░▒█░    ░ ████▓▒░
-    ░▓  ▒▓▒░ ░  ░    ░▓  ░ ▒░   ▒ ▒  ▒ ░    ░ ▒░▒░▒░
-     ▒ ░░▒ ░          ▒ ░░ ░░   ░ ▒░ ░        ░ ▒ ▒░
-     ▒ ░░░            ▒ ░   ░   ░ ░  ░ ░    ░ ░ ░ ▒
-     ░                ░           ░             ░ ░
-                                                  𝖛0.1
-    Parametros:
-
-     -h, --help            command to view help parameters
-     -t, --target          IP address to scan online
-     -db, --database       use geoip database to scan ip address
+![prueba](foto.png)
 ---
 # Version
 ## IPgeolocation
@@ -75,10 +58,7 @@ $ ruby IPgeolocation.rb --help
 
 ![Ruby 3.0.0](https://img.shields.io/badge/Ruby-3.0.0-blue)
 
-## License
+# License
 
 Este proyecto está bajo la Licencia (GNU GENERAL PUBLIC LICENSE) - mira el archivo [LICENSE](LICENSE) para detalles/
 
-# Prueba
-
-![prueba](foto.png)
