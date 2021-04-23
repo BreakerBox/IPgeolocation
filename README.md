@@ -18,27 +18,27 @@ This script is an ip geolocation tool programmed in ruby ​​by [`BreakerBox`]
 
 > $ **apt update**
 
-> $ apt upgrade
+> $ **apt upgrade**
 
-> $ apt install git
+> $ **apt install git**
 
-> $ apt install ruby
+> $ **apt install ruby**
 
-> $ git clone https://github.com/BreakerBox/IPgeolocation.git/
+> $ **git clone https://github.com/BreakerBox/IPgeolocation.git/**
 
-> $ cd IPgeolocation
+> $ **cd IPgeolocation**
 
-> $ ruby IPgeolocation.rb --help
+> $ **ruby IPgeolocation.rb --help**
 
 ### Installation in others
 
-$ git clone https://github.com/BreakerBox/IPgeolocation.git/
+> $ **git clone https://github.com/BreakerBox/IPgeolocation.git/**
 
-$ cd IPgeolocation
+> $ **cd IPgeolocation**
 
-$ ruby requirements.rb
+> $ **ruby requirements.rb**
 
-$ ruby IPgeolocation.rb --help
+> $ **ruby IPgeolocation.rb --help**
 
 # Usage
 ![prueba](foto.png)
