@@ -68,8 +68,13 @@ $ ruby IPgeolocation.rb --help
 ---
 # Version
 ## IPgeolocation
-![IPgeolocation v1.0](https://img.shields.io/badge/IPgeoloc
-ation-%F0%9D%96%9B0.1-blue)                                ## Ruby                                                    ![Ruby 3.0.0](https://img.shields.io/badge/Ruby-3.0.0-blue)
+
+![IPgeolocation v1.0](https://img.shields.io/badge/IPgeolocation-%F0%9D%96%9B0.1-blue)
+
+## Ruby
+
+![Ruby 3.0.0](https://img.shields.io/badge/Ruby-3.0.0-blue)
+
 ## License
 
 Este proyecto está bajo la Licencia (GNU GENERAL PUBLIC LICENSE) - mira el archivo [LICENSE](LICENSE) para detalles/
