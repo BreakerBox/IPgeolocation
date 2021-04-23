@@ -1,10 +1,6 @@
 # IPgeolocation
 [`IPgeolocation.com`](https://github.com/BreakerBox/IPgeolocation.git)
-# Version
-## IPgeolocation
-![IPgeolocation v1.0](https://img.shields.io/badge/IPgeolocation-%F0%9D%96%9B0.1-blue)
-## Ruby
-![Ruby 3.0.0](https://img.shields.io/badge/Ruby-3.0.0-blue)
+
 This is the official Ruby client library for the [`IPinfo.io`](https://ipinfo.io) IP address API, allowing you to lookup your own IP address, or get any of the following details for an IP:
 
 This script is an ip geolocation tool programmed in ruby ​​by [`BreakerBox`](https://github.com/BreakerBox), I hope you like it.
@@ -70,6 +66,10 @@ $ ruby IPgeolocation.rb --help
      -t, --target          IP address to scan online
      -db, --database       use geoip database to scan ip address
 ---
+# Version
+## IPgeolocation
+![IPgeolocation v1.0](https://img.shields.io/badge/IPgeoloc
+ation-%F0%9D%96%9B0.1-blue)                                ## Ruby                                                    ![Ruby 3.0.0](https://img.shields.io/badge/Ruby-3.0.0-blue)
 ## License
 
 Este proyecto está bajo la Licencia (GNU GENERAL PUBLIC LICENSE) - mira el archivo [LICENSE](LICENSE) para detalles/
