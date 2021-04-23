@@ -78,3 +78,7 @@ $ ruby IPgeolocation.rb --help
 ## License
 
 Este proyecto está bajo la Licencia (GNU GENERAL PUBLIC LICENSE) - mira el archivo [LICENSE](LICENSE) para detalles/
+
+# Prueba
+
+![prueba](foto.png)
