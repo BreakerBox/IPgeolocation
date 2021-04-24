@@ -48,7 +48,7 @@ class IPinformation
       print "\e[32m[-]\e[0m \e[34mGoogle Maps:\e[0m    http://www.google.com/maps/place/#{lat},#{lon}/@#{lat},#{lon},16z"
       puts
     end
-    def catche()
+    def cache()
       @details.all
     end
 end

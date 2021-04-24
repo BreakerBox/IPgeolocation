@@ -27,10 +27,12 @@ class MainInformation
  \e[1;32m  -m\e[1;30m,\e[1;32m --myip\e[0m            Scan my ip online
  \e[1;32m  -t\e[1;30m,\e[1;32m --target\e[0m          IP address to scan online
  \e[1;32m  -db\e[1;30m,\e[1;32m --database\e[0m       use geoip database to scan ip address
+ \e[1;32m  -c\e[1;30m,\e[1;32m --clear\e[0m           clear cache of scans to ip addresses
     "
   end
   def trab()
     @param = ARGV[0]
+    $param = @param
     if (@param == '-m') || (@param == '--myip')
        @ips, err, ups = Open3.capture3("curl ifconfig.co")
        @ips.chomp!
@@ -54,7 +56,7 @@ class MainInformation
         "
     end
     def cache()
-      output = ID.catche()
+      output = ID.cache()
       var = File.exists?('./cache')
       if var == false
       FileUtils.mkdir_p('cache')
@@ -81,4 +83,4 @@ end
 
 Main = MainInformation.new('IPgeolocation', 'Breaker', 'https://github.com/BreakerBox', 'breakerbox@gmail.com')
 Main.trab()
-Main.cache()
+Main.cache() if $param == "-m" || $param == "--myip" || $param == "-t" || $param == "--target"
