@@ -4,6 +4,10 @@
 This is the official Ruby client library for the [`IPinfo.io`](https://ipinfo.io) IP address API, allowing you to lookup your own IP address, or get any of the following details for an IP:
 
 This script is an ip geolocation tool programmed in ruby ​​by [`BreakerBox`](https://github.com/BreakerBox), I hope you like it.
+# GitHub Stats
+
+![BreakerBox GitHub Stats](https://github-readme-stats.vercel.app/api?username=BreakerBox&show_icons=true&theme=midnight-purple)
+
 # Installation
 
 ### Required gems

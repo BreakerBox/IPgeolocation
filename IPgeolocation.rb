@@ -2,6 +2,8 @@
 require 'open3'
 require 'ruby_figlet'
 require 'paint'
+require 'fileutils'
+load '.IPinfo/__main__.rb'
 using RubyFiglet
 class MainInformation
   def initialize(tools, author, github, gmail)
@@ -29,13 +31,11 @@ class MainInformation
   def trab()
     @param = ARGV[0]
     if (@param == '-m') || (@param == '--myip')
-       ips, err, ups = Open3.capture3("curl ifconfig.co")
-       ips.chomp!
-       load '.IPinfo/__main__.rb'
-       ID.ipinfo(ips)
+       @ips, err, ups = Open3.capture3("curl ifconfig.co")
+       @ips.chomp!
+       ID.ipinfo(@ips)
     elsif (@param == '-t') || (@param == '--target')
         @ips = ARGV[1]
-        load '.IPinfo/__main__.rb'
         ID.ipinfo(@ips)
     elsif (@param == '-h') || (@param == '--help')
       help()
@@ -50,8 +50,13 @@ class MainInformation
 \e[1;30mset the\e[0m \e[32;4m--help\e[0m \e[1;30mparameter to view the help commands.\e[0m
         "
     end
+    def cache()
+      output = ID.ipinfo(@ips)
+      puts output
+    end
   end
 end
 
 Main = MainInformation.new('IPgeolocation', 'Breaker', 'https://github.com/BreakerBox', 'breakerbox@gmail.com')
 Main.trab()
+Main.cache()

@@ -12,13 +12,12 @@ class IPinformation
     banner('Bloody')
   end
   def iplogger(ip)
-    require 'ipinfo'
     load '.IPinfo/.token/token.rb'
     TokeN.decode_token()
   end
   def ipinfo(ip)
+    require 'ipinfo'
     require 'httpclient'
-    iplogger(ip)
     access_token = '91e04a23db492c'
     #handler = IPinfo::create(access_token)
     handler = IPinfo::create(access_token, {:http_client => HTTPClient})
