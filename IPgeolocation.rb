@@ -44,6 +44,10 @@ class MainInformation
         ID.puts_ip_info()
     elsif (@param == '-h') || (@param == '--help')
       help()
+    elsif (@param == '-db') || (@param == '--database')
+      puts "En proceso..."
+    elsif (@param == '-c') || (@param == '--clear')
+    FileUtils.rm_rf('cache')
     elsif (@param.nil?)
       puts "
 #{Paint["lack of arguments", :red]}, #{Paint["use --help", :green]}
