@@ -5,6 +5,7 @@ require 'paint'
 require 'fileutils'
 load '.IPinfo/__main__.rb'
 using RubyFiglet
+ID = IPinformation.new
 class MainInformation
   def initialize(tools, author, github, gmail)
     @tools = tools
@@ -34,9 +35,11 @@ class MainInformation
        @ips, err, ups = Open3.capture3("curl ifconfig.co")
        @ips.chomp!
        ID.ipinfo(@ips)
+       ID.puts_ip_info()
     elsif (@param == '-t') || (@param == '--target')
         @ips = ARGV[1]
         ID.ipinfo(@ips)
+        ID.puts_ip_info()
     elsif (@param == '-h') || (@param == '--help')
       help()
     elsif (@param.nil?)
@@ -51,11 +54,30 @@ class MainInformation
         "
     end
     def cache()
-      output = ID.ipinfo(@ips)
-      puts output
+      output = ID.catche()
+      var = File.exists?('./cache')
+      if var == false
+      FileUtils.mkdir_p('cache')
+      end
+#     Dir.chdir('cache')
+      pathcache = './cache/cache_ipinfo.log'
+      var2 = File.exists?(pathcache)
+      if var2 == false
+      FileUtils.touch(pathcache)
+      filen = File.open(pathcache, 'w')
+      filen.write("\n")
+      filen.close()
+      end
+      lines = IO.readlines(pathcache).map { |line|
+      "#{output}" + "#{line}"
+      }
+      File.open(pathcache, 'w') { |file|
+      file.puts lines
+      }
     end
   end
 end
+
 
 Main = MainInformation.new('IPgeolocation', 'Breaker', 'https://github.com/BreakerBox', 'breakerbox@gmail.com')
 Main.trab()
