@@ -4,8 +4,10 @@ require 'ruby_figlet'
 require 'paint'
 require 'fileutils'
 load '.IPinfo/__main__.rb'
+load '.IPinfo/FileExport.rb'
 using RubyFiglet
 ID = IPinformation.new
+FileExport = ExportFileInfo.new
 class MainInformation
   def initialize(tools, author, github, gmail)
     @tools = tools
@@ -23,12 +25,28 @@ class MainInformation
     banner('Bloody')
     puts " \e[35;4mParametros:\e[0m
 
- \e[1;32m  -h\e[1;30m,\e[1;32m --help\e[0m            command to view help parameters
+ \e[1;32m  -h\e[1;30m,\e[1;32m --help\e[0m            Command to view help parameters
  \e[1;32m  -m\e[1;30m,\e[1;32m --myip\e[0m            Scan my ip online
  \e[1;32m  -t\e[1;30m,\e[1;32m --target\e[0m          IP address to scan online
- \e[1;32m  -db\e[1;30m,\e[1;32m --database\e[0m       use geoip database to scan ip address
- \e[1;32m  -c\e[1;30m,\e[1;32m --clear\e[0m           clear cache of scans to ip addresses
+ \e[1;32m  -db\e[1;30m,\e[1;32m --database\e[0m       Use geoip database to scan ip address
+ \e[1;32m  -s\e[1;30m,\e[1;32m --save\e[0m            Save the online scan result to a .txt file
+
+ \e[1;32m  -c\e[1;30m,\e[1;32m --clear\e[0m           Clear cache of scans to ip addresses
     "
+  end
+  def savemyip()
+    @param1 = ARGV[1]
+    if (@param1 == '-s') || (@param1 == '--save')
+      @param2 = ARGV[2]
+      FileExport.export(@param2)
+    end
+  end
+  def saveip()
+    @param2 = ARGV[2]
+    if (@param2 == '-s') || (@param2 == '--save')
+      @param3 = ARGV[3]
+      FileExport.export(@param3)
+    end
   end
   def trab()
     @param = ARGV[0]
@@ -38,10 +56,12 @@ class MainInformation
        @ips.chomp!
        ID.ipinfo(@ips)
        ID.puts_ip_info()
-    elsif (@param == '-t') || (@param == '--target')
+       savemyip()
+      elsif (@param == '-t') || (@param == '--target')
         @ips = ARGV[1]
         ID.ipinfo(@ips)
         ID.puts_ip_info()
+        saveip()
     elsif (@param == '-h') || (@param == '--help')
       help()
     elsif (@param == '-db') || (@param == '--database')
