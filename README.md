@@ -45,7 +45,7 @@ This script is an ip geolocation tool programmed in ruby ​​by [`BreakerBox`]
 > $ **ruby IPgeolocation.rb --help**
 
 # Usage
-![prueba](foto.png)
+![prueba](./images/foto.png)
 ---
 # Version
 ## IPgeolocation
