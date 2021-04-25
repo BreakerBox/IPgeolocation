@@ -29,23 +29,31 @@ class MainInformation
  \e[1;32m  -m\e[1;30m,\e[1;32m --myip\e[0m            Scan my ip online
  \e[1;32m  -t\e[1;30m,\e[1;32m --target\e[0m          IP address to scan online
  \e[1;32m  -db\e[1;30m,\e[1;32m --database\e[0m       Use geoip database to scan ip address
- \e[1;32m  -s\e[1;30m,\e[1;32m --save\e[0m            Save the online scan result to a .txt file
+ \e[1;32m  -e\e[1;30m,\e[1;32m -e-txt\e[0m            Save the online scan result to a .txt file
+     \e[1;32m -e-csv\e[0m             Save the file in .csv
+
 
  \e[1;32m  -c\e[1;30m,\e[1;32m --clear\e[0m           Clear cache of scans to ip addresses
     "
   end
   def savemyip()
     @param1 = ARGV[1]
-    if (@param1 == '-s') || (@param1 == '--save')
+    if (@param1 == '-e') || (@param1 == '-e-txt')
       @param2 = ARGV[2]
-      FileExport.export(@param2)
+      FileExport.exporttxt(@param2)
+    elsif (@param1 == '-e-csv')
+      @param2 = ARGV[2]
+      FileExport.exportcsv(@param2)
     end
   end
   def saveip()
     @param2 = ARGV[2]
-    if (@param2 == '-s') || (@param2 == '--save')
+    if (@param2 == '-e') || (@param2 == '-e-txt')
       @param3 = ARGV[3]
-      FileExport.export(@param3)
+      FileExport.exporttxt(@param3)
+    elsif (@param2 == '-e-csv')
+      @param3 = ARGV[3]
+      FileExport.exportcsv(@param3)
     end
   end
   def trab()
