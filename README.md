@@ -32,6 +32,8 @@ This script is an ip geolocation tool programmed in ruby ​​by [`BreakerBox`]
 
 > $ **cd IPgeolocation**
 
+> $ **bundle install --gemfile=requirements.rb**
+
 > $ **ruby IPgeolocation.rb --help**
 
 ### Installation in others
@@ -40,7 +42,7 @@ This script is an ip geolocation tool programmed in ruby ​​by [`BreakerBox`]
 
 > $ **cd IPgeolocation**
 
-> $ **ruby requirements.rb**
+> $ **bundle install --gemfile=requirements.rb**
 
 > $ **ruby IPgeolocation.rb --help**
 
