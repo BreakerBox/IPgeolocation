@@ -3,6 +3,8 @@ require 'open3'
 require 'ruby_figlet'
 require 'paint'
 require 'fileutils'
+require 'ipaddr'
+require 'resolv'
 load '.IPinfo/__main__.rb'
 load '.IPinfo/FileExport.rb'
 using RubyFiglet
@@ -56,17 +58,29 @@ class MainInformation
       FileExport.exportcsv(@param3)
     end
   end
+  def internet_connection?
+    begin
+      dns_resolver = Resolv::DNS.new()
+      dns_resolver.getaddress("google.com")
+    rescue
+      puts "\n\e[1;30;4m[\e[31m✘\e[1;30m]\e[31m Check your internet connection...\e[0m"
+      exit(1)
+    end
+  end
   def trab()
     @param = ARGV[0]
     $param = @param
     if (@param == '-m') || (@param == '--myip')
+       internet_connection?
        @ips, err, ups = Open3.capture3("curl ifconfig.co")
        @ips.chomp!
        ID.ipinfo(@ips)
        ID.puts_ip_info()
        savemyip()
       elsif (@param == '-t') || (@param == '--target')
-        @ips = ARGV[1]
+        @ips = IPAddr.new ARGV[1]
+        @ips = @ips.to_s
+        internet_connection?
         ID.ipinfo(@ips)
         ID.puts_ip_info()
         saveip()
@@ -77,9 +91,7 @@ class MainInformation
     elsif (@param == '-c') || (@param == '--clear')
     FileUtils.rm_rf('cache')
     elsif (@param.nil?)
-      puts "
-#{Paint["lack of arguments", :red]}, #{Paint["use --help", :green]}
-      "
+      puts "#{Paint["lack of arguments", :red]}, #{Paint["use --help", :green]}"
     else
       puts "
 \e[1;31m[✘] argument not found\e[0m
@@ -93,7 +105,7 @@ class MainInformation
       if var == false
       FileUtils.mkdir_p('cache')
       end
-#     Dir.chdir('cache')
+      #Dir.chdir('cache')
       pathcache = './cache/cache_ipinfo.log'
       var2 = File.exists?(pathcache)
       if var2 == false
@@ -111,8 +123,6 @@ class MainInformation
     end
   end
 end
-
-
 Main = MainInformation.new('IPgeolocation', 'Breaker', 'https://github.com/BreakerBox', 'breakerbox@gmail.com')
-Main.trab()
-Main.cache() if $param == "-m" || $param == "--myip" || $param == "-t" || $param == "--target"
+Main.trab
+Main.cache if $param == "-m" || $param == "--myip" || $param == "-t" || $param == "--target"
