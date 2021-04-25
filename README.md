@@ -17,7 +17,9 @@ This script is an ip geolocation tool programmed in ruby ​​by [`BreakerBox`]
  - [paint](https://github.com/janlelis/paint)
  - [ruby_figlet](https://github.com/Demonstrandum/RubyFiglet)
  - [fileutils](https://gist.github.com/jensendarren/e78b464a5b21e58faa29)
-
+ - [httpclient](https://github.com/nahi/httpclient)
+ - [open3](https://github.com/ruby/open3)
+ - [ipaddr](https://github.com/ruby/ipaddr)
 ### Installation in termux
 
 > $ **apt update**
