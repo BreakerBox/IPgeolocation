@@ -12,7 +12,7 @@ class IPinformation
     banner('Bloody')
   end
   def iplogger(ip)
-    load '.IPinfo/.token/token.rb'
+    load '.IPinfo/token/token.rb'
     TokeN.decode_token()
   end
   def ipinfo(ip)
