@@ -2,14 +2,12 @@ class IPinformation
   def initialize(author = "breaker")
  @__author__ = author
   end
-  def banner(font)
-    @font = font
-    puts '  IP  info'.art @font
+  def banner()
+    require 'ruby_figlet'
+    using RubyFiglet
+    puts "ipinfo".art "ANSI Shadow"
     puts "
  𝖛0.1\n"
-  end
-  def help()
-    banner('Bloody')
   end
   def iplogger(ip)
     load '.IPinfo/token/token.rb'
@@ -22,30 +20,73 @@ class IPinformation
     #handler = IPinfo::create(access_token)
     handler = IPinfo::create(access_token, {:http_client => HTTPClient})
     ip_address = ip
-    details = handler.details(ip_address)
+    begin
+      details = handler.details(ip_address)
+    rescue
+      puts 'ip no encontrada'
+      exit(1)
+    end
     @details = details
   end
     def puts_ip_info()
       puts
-      print "\e[32m[-]\e[0m \e[34mTarget:\e[0m       ", @details.ip_address
+      print "\e[32m[-]\e[0m \e[35mTarget:\e[0m       ", @details.ip_address
       puts
-      print "\e[32m[-]\e[0m \e[34mIP:\e[0m           ", @details.ip
+      print "\e[32m[-]\e[0m \e[35mIP:\e[0m           ", @details.ip
       puts
-      print "\e[32m[-]\e[0m \e[34mCountry:\e[0m      ", @details.country_name
+      begin
+      print "\e[32m[-]\e[0m \e[35mCountry:\e[0m      ", @details.country_name
+      rescue
+      print "\e[32m[-]\e[0m \e[35mCountry:\e[0m —"
+      end
       puts
-      print "\e[32m[-]\e[0m \e[34mCountry name:\e[0m ", @details.country
+      begin
+      print "\e[32m[-]\e[0m \e[35mCountry name:\e[0m ", @details.country
+      rescue 
+      print "\e[32m[-]\e[0m \e[35mCountry name:\e[0m —"
+      end
       puts
-      print "\e[32m[-]\e[0m \e[34mCity name:\e[0m    ", @details.city
+      begin
+      print "\e[32m[-]\e[0m \e[35mCity name:\e[0m    ", @details.city
+      rescue
+      print "\e[32m[-]\e[0m \e[35mCity name:\e[0m —"
+      end
       puts
-      print "\e[32m[-]\e[0m \e[34mTimeZone:\e[0m     ", @details.timezone
+      begin
+      print "\e[32m[-]\e[0m \e[35mTimeZone:\e[0m     ", @details.timezone
+      rescue
+      print "\e[32m[-]\e[0m \e[35mTimeZone:\e[0m —"
+      end
       puts
-      print "\e[32m[-]\e[0m \e[34mLatitude:\e[0m     ", lat = @details.latitude
+      begin
+      print "\e[32m[-]\e[0m \e[35mRegion:\e[0m       ", @details.region
+      rescue
+      print "\e[32m[-]\e[0m \e[35mRegion:\e[0m —"
+      end
       puts
-      print "\e[32m[-]\e[0m \e[34mLongitude:\e[0m    ", lon = @details.longitude
+      begin
+      print "\e[32m[-]\e[0m \e[35mLatitude:\e[0m     ", lat = @details.latitude
+      rescue
+      print "\e[32m[-]\e[0m \e[35mLatitude:\e[0m —"
+      end
       puts
-      print "\e[32m[-]\e[0m \e[34mASN:\e[0m     ", @details.org
+      begin
+      print "\e[32m[-]\e[0m \e[35mLongitude:\e[0m   ", lon = @details.longitude
+      rescue
+      print "\e[32m[-]\e[0m \e[35mLongitude:\e[0m —"
+      end
       puts
-      print "\e[32m[-]\e[0m \e[34mGoogle Maps:\e[0m    http://www.google.com/maps/place/#{lat},#{lon}/@#{lat},#{lon},16z"
+      begin
+      print "\e[32m[-]\e[0m \e[35mASN:\e[0m     ", @details.org
+      rescue
+      print "\e[32m[-]\e[0m \e[35mASN:\e[0m -"
+      end
+      puts
+      begin
+      print "\e[32m[-]\e[0m \e[35mGoogle Maps:\e[0m    http://www.google.com/maps/place/#{lat},#{lon}/@#{lat},#{lon},16z" if (@details.longitude.to_f.class == Float) || (@details.latitude.to_f.class == Float)
+      rescue
+      print "\e[32m[-]\e[0m \e[35mGoogle Maps:\e[0m —"
+      end
       puts
     end
     def cache()

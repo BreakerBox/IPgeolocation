@@ -18,10 +18,18 @@ class MainInformation
     @gmail = gmail
   end
   def banner(font)
-    @font = font
     puts "\e[31m"
-    puts '  IP  info'.art @font
+    puts '  IP  info'.art font
     puts "                                                  𝖛0.1\e[0m\n"
+  end
+  def baner()
+    puts 
+    puts "#{Paint["IPgeolocation v0.1", :magenta, :underline]} "
+    puts "
+\e[35mInfo:\e[0m This is the official Ruby client library for the IPinfo.io
+\e[35mTool:\e[0m This script is an ip geolocation tool programmed in ruby.
+\e[35mGithub:\e[0m https://github.com/BreakerBox/
+"
   end
   def help()
     banner('Bloody')
@@ -56,6 +64,9 @@ class MainInformation
     elsif (@param2 == '-e-csv')
       @param3 = ARGV[3]
       FileExport.exportcsv(@param3)
+    else
+      banner('Bloody')
+      ID.puts_ip_info()
     end
   end
   def internet_connection?
@@ -78,11 +89,16 @@ class MainInformation
        ID.puts_ip_info()
        savemyip()
       elsif (@param == '-t') || (@param == '--target')
-        @ips = IPAddr.new ARGV[1]
+        begin 
+          @ips = IPAddr.new ARGV[1]
+        rescue
+          puts "\n\e[1;30;4m[\e[31m✘\e[1;30m]\e[31m the ip address that you entered is not valid...\e[0m" 
+          exit(1)
+        end
         @ips = @ips.to_s
         internet_connection?
         ID.ipinfo(@ips)
-        ID.puts_ip_info()
+        #ID.puts_ip_info()
         saveip()
     elsif (@param == '-h') || (@param == '--help')
       help()
