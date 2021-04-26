@@ -39,6 +39,7 @@ class MainInformation
  \e[1;32m  -m\e[1;30m,\e[1;32m --myip\e[0m            Scan my ip online
  \e[1;32m  -t\e[1;30m,\e[1;32m --target\e[0m          IP address to scan online
  \e[1;32m  -db\e[1;30m,\e[1;32m --database\e[0m       Use geoip database to scan ip address
+ \e[1;32m  -g\e[1;30m,\e[1;32m --google\e[0m          Open the URL of the scan result online
  \e[1;32m  -e\e[1;30m,\e[1;32m -e-txt\e[0m            Save the online scan result to a .txt file
      \e[1;32m -e-csv\e[0m             Save the file in .csv
      \e[1;32m -e-html\e[0m             Save the file in .html
@@ -63,7 +64,6 @@ class MainInformation
     end
   end
   def saveip()
-    @param2 = ARGV[2]
     if (@param2 == '-e') || (@param2 == '-e-txt')
       @param3 = ARGV[3]
       FileExport.exporttxt(@param3)
@@ -107,7 +107,14 @@ class MainInformation
         internet_connection?
         ID.ipinfo(@ips)
         #ID.puts_ip_info()
-        saveip()
+        @param2 = ARGV[2]
+        saveip #if @param2.include?('-e')
+        if (@param2 == "-g") || (@param2 == "--google")
+        puts 
+          ID.open_google_maps()
+        else
+          return false
+        end
     elsif (@param == '-h') || (@param == '--help')
       help()
     elsif (@param == '-db') || (@param == '--database')
@@ -149,4 +156,4 @@ class MainInformation
 end
 Main = MainInformation.new('IPgeolocation', 'Breaker', 'https://github.com/BreakerBox', 'breakerbox@gmail.com')
 Main.trab
-Main.cache if $param == "-m" || $param == "--myip" || $param == "-t" || $param == "--target"
+#Main.cache if $param == "-m" || $param == "--myip" || $param == "-t" || $param == "--target"

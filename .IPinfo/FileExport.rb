@@ -20,7 +20,7 @@ class ExportFileInfo < IPinformation
     resultfile.write("\nCity Name:\t")
     resultfile.write(@details.city)
     resultfile.write("\nRegion:\t")
-    resultfile.writr(@details.region)
+    resultfile.write(@details.region)
     resultfile.write("\nTime Zone:\t")
     resultfile.write(@details.timezone)
     resultfile.write("\nLatitude:\t")

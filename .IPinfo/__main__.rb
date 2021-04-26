@@ -1,6 +1,7 @@
+require 'launchy'
 class IPinformation
   def initialize(author = "breaker")
- @__author__ = author
+   @__author__ = author
   end
   def banner()
     require 'ruby_figlet'
@@ -10,8 +11,7 @@ class IPinformation
  𝖛0.1\n"
   end
   def iplogger(ip)
-    load '.IPinfo/token/token.rb'
-    TokeN.decode_token()
+    put = decode_token('OTFlMDRhMjNkYjQ5MmMK')
   end
   def ipinfo(ip)
     require 'ipinfo'
@@ -27,8 +27,13 @@ class IPinformation
       exit(1)
     end
     @details = details
+     var_google()
+  end
+  def var_google()
+   @google_maps = "http://www.google.com/maps/place/" + @details.latitude + "," + @details.longitude + "/@" + @details.latitude + "," + @details.longitude + ",16z"
   end
     def puts_ip_info()
+      var_google()
       puts
       print "\e[32m[-]\e[0m \e[35mTarget:\e[0m       ", @details.ip_address
       puts
@@ -83,11 +88,18 @@ class IPinformation
       end
       puts
       begin
-      print "\e[32m[-]\e[0m \e[35mGoogle Maps:\e[0m    http://www.google.com/maps/place/#{lat},#{lon}/@#{lat},#{lon},16z" if (@details.longitude.to_f.class == Float) || (@details.latitude.to_f.class == Float)
+      print "\e[32m[-]\e[0m \e[35mGoogle Maps:\e[0m ", @google_maps if (@details.longitude.to_f.class == Float) || (@details.latitude.to_f.class == Float)
       rescue
       print "\e[32m[-]\e[0m \e[35mGoogle Maps:\e[0m —"
       end
       puts
+    end
+    def open_google_maps()
+      begin
+        Launchy.open(@google_maps)
+      rescue
+        puts "\n\e[1;30m[\e[31m✘\e[1;30m]\e[31m Error opening web browser..."
+      end
     end
     def cache()
       @details.all
