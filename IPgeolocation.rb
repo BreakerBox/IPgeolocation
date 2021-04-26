@@ -41,7 +41,7 @@ class MainInformation
  \e[1;32m  -db\e[1;30m,\e[1;32m --database\e[0m       Use geoip database to scan ip address
  \e[1;32m  -e\e[1;30m,\e[1;32m -e-txt\e[0m            Save the online scan result to a .txt file
      \e[1;32m -e-csv\e[0m             Save the file in .csv
-
+     \e[1;32m -e-html\e[0m             Save the file in .html
 
  \e[1;32m  -c\e[1;30m,\e[1;32m --clear\e[0m           Clear cache of scans to ip addresses
     "
@@ -54,6 +54,12 @@ class MainInformation
     elsif (@param1 == '-e-csv')
       @param2 = ARGV[2]
       FileExport.exportcsv(@param2)
+    elsif (@param1 == '-e-html')
+      @param2 = ARGV[2]
+      FileExport.exporthtml(@param2)
+    else
+      banner('Bloody')
+      ID.puts_ip_info()
     end
   end
   def saveip()
@@ -89,7 +95,6 @@ class MainInformation
        @ips, err, ups = Open3.capture3("curl ifconfig.co")
        @ips.chomp!
        ID.ipinfo(@ips)
-       ID.puts_ip_info()
        savemyip()
       elsif (@param == '-t') || (@param == '--target')
         begin 

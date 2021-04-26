@@ -68,7 +68,7 @@ class ExportFileInfo < IPinformation
     create.write("\n<p>Latitude: " + @details.latitude + "</p>")
     create.write("\n<p>Longitude: " + @details.longitude + "</p>")
     create.write("\n<p>Organization: " + @details.org + "</p>")
-    create.write("\n<p>Google Maps: http://www.google.com/maps/place/" + @details.latitude + "," + @details.longitude + "/@" + @details.latitude + "," + @details.longitude + ",16z")
+    create.write("\n<p>Google Maps: http://www.google.com/maps/place/" + @details.latitude + "," + @details.longitude + "/@" + @details.latitude + "," + @details.longitude + ",16z</p>")
     create.write("\n</body>")
     create.write("\n</html>")
     }
