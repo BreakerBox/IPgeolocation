@@ -64,6 +64,9 @@ class MainInformation
     elsif (@param2 == '-e-csv')
       @param3 = ARGV[3]
       FileExport.exportcsv(@param3)
+    elsif (@param2 == '-e-html')
+      @param3 = ARGV[3]
+      FileExport.exporthtml(@param3)
     else
       banner('Bloody')
       ID.puts_ip_info()
