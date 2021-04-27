@@ -45,6 +45,8 @@ class MainInformation
      \e[1;32m -e-csv\e[0m             Save the file in .csv
      \e[1;32m -e-html\e[0m            Save the file in .html
 
+ \e[1;32m  -v\e[1;30m,\e[1;32m --verbose\e[0m         Enable verbose output
+
  \e[1;32m  -c\e[1;30m,\e[1;32m --clear\e[0m           Clear cache of scans to ip addresses
     "
   end
