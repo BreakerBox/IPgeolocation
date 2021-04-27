@@ -13,18 +13,29 @@ class IPinformation
   def iplogger(ip)
     put = decode_token('OTFlMDRhMjNkYjQ5MmMK')
   end
-  def ipinfo(ip)
+  def ipinfo(ip, verbose)
     require 'ipinfo'
     require 'httpclient'
+    @verbose = verbose
     access_token = '91e04a23db492c'
     #handler = IPinfo::create(access_token)
     handler = IPinfo::create(access_token, {:http_client => HTTPClient})
+    if @verbose
+      print "\n\e[32m[\e[0m+\e[32m]\e[0m IPgeolocation has been logged perfectly...\n"
+      sleep(0.5)
+    end
     ip_address = ip
-    begin
       details = handler.details(ip_address)
-    rescue
-      puts 'ip no encontrada'
-      exit(1)
+     if (ip_address.to_i >= 1)
+      if @verbose
+        print "\e[32m[\e[0m+\e[32m]\e[0m the ip address is valid, details have been cached..."
+        print "\n\e[32m[\e[0m+\e[32m]\e[0m Service usade: IPinfo.io\n"
+        sleep(0.5)
+      end
+    else
+      if @verbose
+      print "\e[1;30m[\e[31m✘\e[1;30m]\e[0m the ip address was not found on the server...\n"
+      end
     end
     @details = details
     var_google()

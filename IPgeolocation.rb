@@ -11,11 +11,12 @@ using RubyFiglet
 ID = IPinformation.new
 FileExport = ExportFileInfo.new
 class MainInformation
-  def initialize(tools, author, github, gmail)
+  def initialize(tools, author, github, gmail, verbose = false) #verbose :default => false
     @tools = tools
     @author = author
     @github = github
     @gmail = gmail
+    @verbose = false
   end
   def banner(font)
     puts "\e[31m"
@@ -105,9 +106,13 @@ class MainInformation
         end
         @ips = @ips.to_s
         internet_connection?
-        ID.ipinfo(@ips)
-        #ID.puts_ip_info()
         @param2 = ARGV[2]
+        if (@param2 == "-v") || (@param2 == "--verbose")
+        ID.ipinfo(@ips, @verbose = true)
+        else
+          ID.ipinfo(@ips, @verbose)
+        end
+        #ID.puts_ip_info()
         saveip #if @param2.include?('-e')
         if (@param2 == "-g") || (@param2 == "--google")
         puts 
