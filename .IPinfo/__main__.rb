@@ -27,13 +27,16 @@ class IPinformation
       exit(1)
     end
     @details = details
-     var_google()
+    var_google()
   end
   def var_google()
+   begin
    @google_maps = "http://www.google.com/maps/place/" + @details.latitude + "," + @details.longitude + "/@" + @details.latitude + "," + @details.longitude + ",16z"
+   rescue
+   return false
+   end
   end
     def puts_ip_info()
-      var_google()
       puts
       print "\e[32m[-]\e[0m \e[35mTarget:\e[0m       ", @details.ip_address
       puts
@@ -70,13 +73,13 @@ class IPinformation
       end
       puts
       begin
-      print "\e[32m[-]\e[0m \e[35mLatitude:\e[0m     ", lat = @details.latitude
+      print "\e[32m[-]\e[0m \e[35mLatitude:\e[0m     ", @details.latitude
       rescue
       print "\e[32m[-]\e[0m \e[35mLatitude:\e[0m —"
       end
       puts
       begin
-      print "\e[32m[-]\e[0m \e[35mLongitude:\e[0m   ", lon = @details.longitude
+      print "\e[32m[-]\e[0m \e[35mLongitude:\e[0m   ", @details.longitude
       rescue
       print "\e[32m[-]\e[0m \e[35mLongitude:\e[0m —"
       end

@@ -42,7 +42,7 @@ class MainInformation
  \e[1;32m  -g\e[1;30m,\e[1;32m --google\e[0m          Open the URL of the scan result online
  \e[1;32m  -e\e[1;30m,\e[1;32m -e-txt\e[0m            Save the online scan result to a .txt file
      \e[1;32m -e-csv\e[0m             Save the file in .csv
-     \e[1;32m -e-html\e[0m             Save the file in .html
+     \e[1;32m -e-html\e[0m            Save the file in .html
 
  \e[1;32m  -c\e[1;30m,\e[1;32m --clear\e[0m           Clear cache of scans to ip addresses
     "
