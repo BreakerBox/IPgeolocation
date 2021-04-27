@@ -147,30 +147,33 @@ class MainInformation
 \e[1;30mset the\e[0m \e[32;4m--help\e[0m \e[1;30mparameter to view the help commands.\e[0m
         "
     end
-    def cache()
-      output = ID.cache()
-      var = File.exists?('./cache')
-      if var == false
-      FileUtils.mkdir_p('cache')
-      end
-      #Dir.chdir('cache')
-      pathcache = './cache/cache_ipinfo.log'
-      var2 = File.exists?(pathcache)
-      if var2 == false
-      FileUtils.touch(pathcache)
-      filen = File.open(pathcache, 'w')
-      filen.write("\n")
-      filen.close()
-      end
-      lines = IO.readlines(pathcache).map { |line|
-      "#{output}" + "#{line}"
-      }
-      File.open(pathcache, 'w') { |file|
-      file.puts lines
-      }
-    end
   end
 end
 Main = MainInformation.new('IPgeolocation', 'Breaker', 'https://github.com/BreakerBox', 'breakerbox@gmail.com')
-Main.trab
-#Main.cache if $param == "-m" || $param == "--myip" || $param == "-t" || $param == "--target"
+Main.trab()
+$param != "-m" #|| $param == "--myip" || $param == "-t" || $param == "--target"
+
+def cache()
+  output = ID.cache()
+  var = File.exists?('./cache')
+  if var == false
+  FileUtils.mkdir_p('cache')
+  end
+  #Dir.chdir('cache')
+  pathcache = './cache/cache_ipinfo.log'
+  var2 = File.exists?(pathcache)
+  if var2 == false
+  FileUtils.touch(pathcache)
+  filen = File.open(pathcache, 'w')
+  filen.write("\n")
+  filen.close()
+  end
+  lines = IO.readlines(pathcache).map { |line|
+    "#{output}" + "#{line}"
+  }
+  File.open(pathcache, 'w') { |file|
+  file.puts lines
+  }
+end
+
+cache() if $param == "-m" || $param == "--myip" || $param == "-t" || $param == "--target"
