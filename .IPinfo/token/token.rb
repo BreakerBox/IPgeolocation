@@ -7,5 +7,3 @@ class Token
     return dec = Base64.decode64(@dato)
   end
 end
-
-TokeN = Token.new('OTFlMDRhMjNkYjQ5MmMK')

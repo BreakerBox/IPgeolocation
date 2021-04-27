@@ -51,7 +51,6 @@ class MainInformation
     "
   end
   def savemyip()
-    @param1 = ARGV[1]
     if (@param1 == '-e') || (@param1 == '-e-txt')
       @param2 = ARGV[2]
       FileExport.exporttxt(@param2)
@@ -97,8 +96,19 @@ class MainInformation
        internet_connection?
        @ips, err, ups = Open3.capture3("curl ifconfig.co")
        @ips.chomp!
-       ID.ipinfo(@ips)
+       @param1 = ARGV[1]
+       if (@param1 == "-v") || (@param1 == "--verbose")
+        ID.ipinfo(@ips, @verbose = true)
+       else
+        ID.ipinfo(@ips, @verbose)
+       end
        savemyip()
+       if (@param1 == "-g") || (@param1 == "--google")
+        puts
+          ID.open_google_maps()
+        else
+          return false
+        end
       elsif (@param == '-t') || (@param == '--target')
         begin 
           @ips = IPAddr.new ARGV[1]
