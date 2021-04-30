@@ -50,6 +50,10 @@ This script is an ip geolocation tool programmed in ruby ​​by [`BreakerBox`]
 
 # Usage
 ![prueba](./images/foto.png)
+
+# Downloads
+![GitHub All Releases](https://img.shields.io/github/downloads/lewdev/hw-gen/total)
+
 ---
 # Version
 ## IPgeolocation

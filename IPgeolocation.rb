@@ -25,27 +25,30 @@ class MainInformation
   end
   def baner()
     puts 
-    puts "#{Paint["IPgeolocation v0.1", :magenta, :underline]} "
+    puts "#{Paint["IPgeolocation v0.1", :green, :underline]} "
     puts "
-\e[35mInfo:\e[0m This is the official Ruby client library for the IPinfo.io
-\e[35mTool:\e[0m This script is an ip geolocation tool programmed in ruby.
-\e[35mGithub:\e[0m https://github.com/BreakerBox/
+#{Paint['╭─[', :green]} Ruby client library for the IPinfo.io
+#{Paint['├─[', :green]} Script is an ip geolocation tool programmed in ruby
+#{Paint['├─[', :green]} Author: Breaker 
+#{Paint['├─[', :green]} Gmail: breakerhtb@gmail.com
+#{Paint['╰─[', :green]} Github: https://github.com/BreakerBox/
 "
   end
   def help()
     banner('Bloody')
-    puts " \e[35;4mParametros:\e[0m
+    puts " \e[32;4mParametros:\e[0m
 
  \e[1;32m  -h\e[1;30m,\e[1;32m --help\e[0m            Command to view help parameters
- \e[1;32m  -m\e[1;30m,\e[1;32m --myip\e[0m            Scan my ip online
- \e[1;32m  -t\e[1;30m,\e[1;32m --target\e[0m          IP address to scan online
- \e[1;32m  -db\e[1;30m,\e[1;32m --database\e[0m       Use geoip database to scan ip address
- \e[1;32m  -g\e[1;30m,\e[1;32m --google\e[0m          Open the URL of the scan result online
- \e[1;32m  -e\e[1;30m,\e[1;32m -e-txt\e[0m            Save the online scan result to a .txt file
+ \e[1;32m  -m\e[1;30m,\e[1;32m --myip\e[0m            Scan my ip
+ \e[1;32m  -t\e[1;30m,\e[1;32m --target\e[0m          IP address to scan
+ \e[1;32m  -db\e[1;30m,\e[1;32m --database\e[0m       Geoip database to scan ip address
+ \e[1;32m  -g\e[1;30m,\e[1;32m --google\e[0m          Open the URL of the scan result
+ \e[1;32m  -e\e[1;30m,\e[1;32m -e-txt\e[0m            Save the scan result to a file.txt
      \e[1;32m -e-csv\e[0m             Save the file in .csv
      \e[1;32m -e-html\e[0m            Save the file in .html
 
  \e[1;32m  -v\e[1;30m,\e[1;32m --verbose\e[0m         Enable verbose output
+ \e[1;32m  -a\e[1;30m,\e[1;32m --author\e[0m          Info the author the script
 
  \e[1;32m  -c\e[1;30m,\e[1;32m --clear\e[0m           Clear cache of scans to ip addresses
     "
@@ -136,6 +139,8 @@ class MainInformation
       help()
     elsif (@param == '-db') || (@param == '--database')
       puts "En proceso..."
+    elsif (@param == '-a') || (@param == '--author')
+      baner()
     elsif (@param == '-c') || (@param == '--clear')
     FileUtils.rm_rf('cache')
     elsif (@param.nil?)
