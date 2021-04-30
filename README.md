@@ -1,4 +1,5 @@
-# IPgeolocation
+![Welcome to the official Github repository @IPgeolocation](https://user-images.githubusercontent.com/282759/84682528-c1d5d300-af03-11ea-9bfb-02854ad0cb20.gif)
+
 [`IPgeolocation.com`](https://github.com/BreakerBox/IPgeolocation.git)
 
 This is the official Ruby client library for the [`IPinfo.io`](https://ipinfo.io) IP address API, allowing you to lookup your own IP address, or get any of the following details for an IP:
@@ -50,9 +51,6 @@ This script is an ip geolocation tool programmed in ruby ​​by [`BreakerBox`]
 
 # Usage
 ![prueba](./images/foto.png)
-
-# Downloads
-![GitHub All Releases](https://img.shields.io/github/downloads/lewdev/hw-gen/total)
 
 ---
 # Version
