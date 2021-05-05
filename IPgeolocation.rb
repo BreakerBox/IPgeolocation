@@ -1,20 +1,21 @@
 #!/bin/env ruby
 #encoding: utf-8
-@arr = %w[v e r i f i c a n d o _ d e p e n d e n c i a s . . .]
+@arr = "verificando_dependencias...".chars
 ar = %w[— \\ | /]
 @ar = ar
-exist_lock = File.exist?('requirements.rb.lock')
+exist_lock = File.exist?('Gemfile.lock')
 def verifican()
   a = 0
   o = 0
   while true
     if (a <= 2)
       for i in @arr
+        #print "\r#{p}"
         print "\e[32m#{i}\e[0m"
         sleep(0.1)
         a = a + 1
       end
-      sleep(1)
+    sleep(1)
     end
     if (a >= 4)
       for e in @ar
@@ -32,11 +33,11 @@ if exist_lock == false
   if true
    contad = 0
     for u in arry
-      print "\e[1;30m[\e[31m✘\e[1;30m]\e[31m Dependencias no encontradas#{u}\r"
+      print " \e[1;30m[\e[31m✘\e[1;30m]\e[31m Dependencias no encontradas#{u}\r"
       sleep(1)
       contad += 1
       if contad == 3
-        puts "\e[0m\e[1;30m[\e[31m✘\e[1;30m]\e[31m Ejecute '\e[0;4mbundle install --gemfile=requirements.rb\e[0m\e[31m'"
+        puts "\e[0m\e[1;30m[\e[31m✘\e[1;30m]\e[31m Ejecute '\e[0;4mbundle install\e[0m\e[1;31m' para comenzar\e[0m"
         exit(1) if contad == 3
       end
     end
